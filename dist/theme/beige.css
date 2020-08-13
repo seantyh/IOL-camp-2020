@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
 /**
  * Beige theme for reveal.js.
  *
@@ -44,7 +46,7 @@
   background-color: #f7f3de; }
 
 .reveal {
-  font-family: "Lato", sans-serif;
+  font-family: cwTeXYen, "Lato", sans-serif;
   font-size: 40px;
   font-weight: normal;
   color: #333; }
@@ -75,7 +77,7 @@
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #333;
-  font-family: "League Gothic", Impact, sans-serif;
+  font-family: cwTeXYen, "League Gothic", Impact, sans-serif;
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: normal;
