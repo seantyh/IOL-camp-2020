@@ -30,7 +30,7 @@
 
 			<section data-markdown>
 				<textarea data-template>
-						### 一些很玄的問題
+						### 語言與人的緊密關係
 						* 如果森林裡沒有人，樹倒下了，有聲音嗎？
 						* 如果沒有人，有語言嗎？
 						* 如果沒有語言，人能思考嗎？
@@ -160,13 +160,13 @@
 						and <span style='color: red; font-weight: bolder;'>t</span>hen <span style='color: red; font-weight: bolder;'>t</span>he smoke <span style='color: red; font-weight: bolder;'>t</span>hickened. Small flames s<span style='color: red; font-weight: bolder;'>t</span>irred a<span style='color: red; font-weight: bolder;'>t</span> <span style='color: red; font-weight: bolder;'>t</span>he 
 						bole of a <span style='color: red; font-weight: bolder;'>t</span>ree and crawled away <span style='color: red; font-weight: bolder;'>t</span>hrough leaves and brush wood, 
 						dividing and increasing. One pa<span style='color: red; font-weight: bolder;'>t</span>ch <span style='color: red; font-weight: bolder;'>t</span>ouched a <span style='color: red; font-weight: bolder;'>t</span>ree <span style='color: red; font-weight: bolder;'>t</span>runk and scrambled up 
-						like a squirrel. The smoke increased, sif<span style='color: red; font-weight: bolder;'>t</span>ed, rolled ou<span style='color: red; font-weight: bolder;'>t</span> wards. 
-						The squirrel leap<span style='color: red; font-weight: bolder;'>t</span> on <span style='color: red; font-weight: bolder;'>t</span>he wings of <span style='color: red; font-weight: bolder;'>t</span>he wind and clung <span style='color: red; font-weight: bolder;'>t</span>o ano<span style='color: red; font-weight: bolder;'>t</span>her s<span style='color: red; font-weight: bolder;'>t</span>anding <span style='color: red; font-weight: bolder;'>t</span>ree, 
-						ea<span style='color: red; font-weight: bolder;'>t</span>ing downwards. The fire laid hold on <span style='color: red; font-weight: bolder;'>t</span>he fores<span style='color: red; font-weight: bolder;'>t</span> and began <span style='color: red; font-weight: bolder;'>t</span>o gnaw. [Golding, 1959 (pp. 56–57)]
+						like a squirrel. <span style='color: red; font-weight: bolder;'>T</span>he smoke increased, sif<span style='color: red; font-weight: bolder;'>t</span>ed, rolled ou<span style='color: red; font-weight: bolder;'>t</span> wards. 
+						<span style='color: red; font-weight: bolder;'>T</span>he squirrel leap<span style='color: red; font-weight: bolder;'>t</span> on <span style='color: red; font-weight: bolder;'>t</span>he wings of <span style='color: red; font-weight: bolder;'>t</span>he wind and clung <span style='color: red; font-weight: bolder;'>t</span>o ano<span style='color: red; font-weight: bolder;'>t</span>her s<span style='color: red; font-weight: bolder;'>t</span>anding <span style='color: red; font-weight: bolder;'>t</span>ree, 
+						ea<span style='color: red; font-weight: bolder;'>t</span>ing downwards. <span style='color: red; font-weight: bolder;'>T</span>he fire laid hold on <span style='color: red; font-weight: bolder;'>t</span>he fores<span style='color: red; font-weight: bolder;'>t</span> and began <span style='color: red; font-weight: bolder;'>t</span>o gnaw. [Golding, 1959 (pp. 56–57)]
 					</quote>
 					<pre class="javascript"><code data-trim>
-						text.match(/t/g).length;
-						// 37
+						text.match(/t/ig).length;
+						// 40
 					</code></pre>
 					<script>
 						let text = `
@@ -179,8 +179,8 @@
 						like a squirrel. The smoke increased, sifted, rolled out wards. 
 						The squirrel leapt on the wings of the wind and clung to another standing tree, 
 						eating downwards. The fire laid hold on the forest and began to gnaw. [Golding, 1959 (pp. 56–57)]`;
-						let highlights = text.replace(/t/g, "<span style='color: red; font-weight: bolder;'>t</span>");				
-						let nCount = text.match(/t/g).length;
+						let highlights = text.replace(/(t)/ig, "<span style='color: red; font-weight: bolder;'>\1</span>");				
+						let nCount = text.match(/t/ig).length;
 						console.log(nCount);
 					</script>				
 			</section>						
@@ -310,53 +310,85 @@
 
 			<section data-markdown>
 				<textarea data-template>
-
-				</textarea>
-			</section>
-
-			<section data-markdown>
-				<textarea data-template>
 				### 那還有什麼可能？
-				* 大腦中的語意分布可以是
+				* 如果不局限於一定要是「大腦」表徵的方式，表達語義有很多其他選擇。
 				* 機率式的：主題模型
-				* 向量空間式的：BERT
+				* 深度學習式的：實用導向模型
 				
 				</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-					### 主題模型
-				
+					### 主題模型(1)
+					* bank可以當「銀行」也可以當「河岸」。
+					* 詞的多意性，就像是一個銅板。投擲同一個銅板可能會有不同結果（正面反面），
+					  每個詞被使用時，都像是銅板被投擲了一次，可能展現出不同詞意。
+					  
+					<img src="assets/Griffiths-topic-model-1c.png" width="400px"
+						  title="Griffiths, Steyvers, & Tenenbaum (2007). Topics in Semantic Representation" width="700px">
+						  
 				</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-					### BERT
-				
+					### 主題模型(2)
+					* 句子的使用情境可以讓詞比較偏向某種「主題」。
+
+					<img src="assets/Griffiths-topic-model-5.png" width="500px"
+						title="Griffiths, Steyvers, & Tenenbaum (2007). Topics in Semantic Representation" width="700px">
 				</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-				### 用科學的方法研究心智的功能
-				* 從躺椅到史金納箱
-				* 流程圖到統計參數圖
-				* 心智是看不見摸不著的：有實際的資料，大家總比較好一起往前進。
+					### 深度學習
+					* 語意表徵是拿來用的。只要我們能把詞變成一組電腦能用的形式，而電腦可以達成我們的要求，
+					電腦應該就懂這些詞的「意義」。
+					<a href="http://jalammar.github.io/illustrated-transformer/" style="font-size: small">(full detail)</a>
+
+					<img src="assets/transformer_decoding_1.gif" width="600px"
+						title="http://jalammar.github.io/illustrated-transformer/">
+
+					
+				</textarea>
+			</section>
+
+			
+			<section data-markdown>
+				<textarea data-template>
+					一些有趣的Demo
+					* [Write with transformer](https://transformer.huggingface.co/doc/distil-gpt2)
+					* [Webpage layout generator](https://twitter.com/sharifshameem/status/1282676454690451457)
+					* [Layout generator with emoji](https://twitter.com/sharifshameem/status/1284815412949991425)
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+				### 語意表達方式那麼多種
+				* 那什麼才是語意？什麼才是人們真正處理語言的方式？
+				* 心理學的故事：從躺椅到史金納箱、流程圖到統計參數圖
+				* 共通點：讓看不見摸不著的東西看得見摸得著——有實際的資料，大家總比較好一起往前進。
 				</textarea>
 			</section>
 
 
 			<section data-markdown>
 				<textarea data-template>
-					### 用資料認識世界
-					* 心理學家用大腦、生理或行為實驗
+					### 我們是探險家，用實際資料認識世界
+					* 像是心理學家用大腦、生理或行為實驗
 					* 深度學習用輸入資料和標記資料
 					* 語言學家，用人類溝通的符號系統－語言－來認識（內在與外在）世界。
 				</textarea>
 			</section>
 
+			<section>
+				<h3>大腦、語言與心智：</h3>
+				<h4>我們如何處理語言？</h4>
+				
+			</section>
 		</div>
 	</div>
 
